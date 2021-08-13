@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_2742592_t8b680yg35k.css">
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+    <script type="text/javascript">
+    
+      if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body);
+        }, false);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    
+    
+   
+    
+    <script type="text/javascript">
+    
+
+    function remRefresh() {
+      //适配
+    //获取屏幕宽度
+    let clientWidth = document.documentElement.clientWidth;
+    //将屏幕的宽度等分：16 或者10 降低单位rem值的大小便于计算 提高精确度
+    let rem = clientWidth/10;
+    //设置根节点字体的大小
+    document.documentElement.style.fontSize = rem + 'px' ;
+    //设置body字体的大小
+    document.body.style.fontSize = '16px';
+    };
+    remRefresh();
+    window.addEventListener('pageshow',()=>{
+      remRefresh();
+    });
+    let timeOut
+    window.addEventListener('resize',()=>{
+      !!timeOut && clearTimeout(timeOut)
+      timeOut = setTimeout(() => {
+        console.log('xxx')
+        remRefresh()
+      }, 300);
+    })
+    </script>
+  </body>
+</html>
